@@ -66,6 +66,11 @@ body {
 }
 
 main {
+  @include desktop {
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-areas: "primary card";
+  }
   section#card {
     background-color: #fff;
     padding: 20px;
@@ -73,6 +78,13 @@ main {
     border-radius: $borders;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 80%;
+
+    @include desktop {
+      grid-area: card;
+      height: fit-content;
+      align-self: center;
+      max-resolution: 1em;
+    }
   }
 
   ul {
@@ -105,6 +117,12 @@ main {
     color: white;
     padding: $padding;
     text-align: center;
+
+    @include desktop {
+      grid-area: primary;
+      text-align: left;
+      margin: 4em 0 0 4em;
+    }
 
     h1 {
       font-size: 3em;
